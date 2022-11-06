@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState, useEffect } from "react";
+import Navbar from "./component/navbar/navbar";
+import Navlist from "./component/navbar/navlist";
+import { Routes, Route } from "react-router-dom";
+import Home from "./page/Home";
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const hideMenu = () => {
+    if (window.innerWidth > 750 && isOpen) {
+      setIsOpen(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", hideMenu);
+    return () => {
+      window.removeEventListener("resize", hideMenu);
+    };
+  }, []);
+
+  console.log(isOpen);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font-jamjuree">
+      <Navbar toggle={toggle} />
+      <Navlist isOpen={isOpen} toggle={toggle} />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
