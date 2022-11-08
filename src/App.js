@@ -24,7 +24,7 @@ function App() {
 
   console.log(isOpen);
   return (
-    <div className="font-jamjuree">
+    <div className="font-jamjuree text-uColor-green">
       <Navbar toggle={toggle} />
       <Navlist isOpen={isOpen} toggle={toggle} />
 
