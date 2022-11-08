@@ -33,7 +33,7 @@ function Home() {
           </div>
         </div>
 
-        {/* <div className="flex flex-row mt-10 mb-20 gap-10">
+        <div className="flex flex-row mt-10 mb-20 gap-10">
           <div class="basis-1/2 ">
             <button className="w-full h-40 p-10 py-2 px-4 bg-[#ffffff] rounded text-[#064635] hover:bg-[#064635] hover:text-[#ffffff] transition duration-300 text-4xl font-semibold drop-shadow-xl">
               มีใบนัดตรวจ
@@ -44,7 +44,7 @@ function Home() {
               ไม่มีใบนัดตรวจ
             </button>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
