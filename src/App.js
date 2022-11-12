@@ -3,6 +3,8 @@ import Navbar from "./component/navbar/navbar";
 import Navlist from "./component/navbar/navlist";
 import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
+import PatientDetails from "./page/patientDetails";
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,6 +32,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/patientdetails" element={<PatientDetails />} />
       </Routes>
     </div>
   );
