@@ -9,17 +9,18 @@ module.exports = {
        
         jamjuree:" 'Bai Jamjuree', sans-serif",
        
-      }
-    },
-    colors: {
+      } ,colors: {
       
-      'uColor': {
-        green: '#064635',
-        DEFAULT: '#E8E8CC',
-        bg: '#F0BB62',
+        'uColor': {
+          green: '#064635',
+          DEFAULT: '#E8E8CC',
+          bg: '#F0BB62',
+          table:'#FFF1D8',
+        },
+      
       },
-    
     },
+   
    
   },
   plugins: [],

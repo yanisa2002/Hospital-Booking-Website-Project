@@ -3,6 +3,8 @@ import Navbar from "./component/navbar/navbar";
 import Navlist from "./component/navbar/navlist";
 import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
+import BookingMA from "./page/BookingMA";
+import StaffManage from "./page/StaffManage";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,7 +31,9 @@ function App() {
       <Navlist isOpen={isOpen} toggle={toggle} />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/booking-ma" element={<BookingMA />} />
+        <Route path="/" element={<StaffManage/>} />
       </Routes>
     </div>
   );
