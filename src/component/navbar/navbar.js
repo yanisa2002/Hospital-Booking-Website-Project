@@ -6,7 +6,7 @@ const Navbar = ({ toggle }) => {
   return (
     <nav
       className={`flex items-center justify-between flex-wrap  p-4 relative shadow-sm ${
-        location.pathname == "/" ? "bg-white shadow-md" : "bg-[#F0BB62]"
+        location.pathname == "/staff" ? "bg-white shadow-md" : "bg-[#F0BB62]"
       } text-uColor-green `}
     >
       <div className="flex items-center flex-shrink-0  mr-10">

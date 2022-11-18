@@ -31,9 +31,9 @@ function App() {
       <Navlist isOpen={isOpen} toggle={toggle} />
 
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/booking-ma" element={<BookingMA />} />
-        <Route path="/" element={<StaffManage/>} />
+        <Route path="/staff" element={<StaffManage/>} />
       </Routes>
     </div>
   );
