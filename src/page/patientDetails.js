@@ -18,7 +18,7 @@ function patientDetails() {
                 className="block text-uColor-green text-xl mt-2 mb-2"
                 htmlFor="Firstname"
               >
-                ชื่อ
+                ชื่อ *
               </label>
               <input
                 class="shadow appearance-none border rounded py-2 px-3 text-grey-darker"
@@ -32,7 +32,7 @@ function patientDetails() {
                 className="block text-uColor-green text-xl mt-2 mb-2"
                 htmlFor="Lastname"
               >
-                นามสกุล
+                นามสกุล *
               </label>
               <input
                 class="shadow appearance-none border rounded py-2 px-3 text-grey-darker"
@@ -47,7 +47,7 @@ function patientDetails() {
               className="block text-uColor-green text-xl mt-2 mb-2"
               htmlFor="IDCard"
             >
-              เลขประจำตัวประชาชน
+              เลขประจำตัวประชาชน *
             </label>
             <input
               class="shadow appearance-none border w-full rounded py-2 px-3 text-uColor-green"
@@ -62,10 +62,10 @@ function patientDetails() {
             ข้อมูลอาการเบื้องต้น
           </p>
           <label
-            className="block text-uColor-green text-xl mt-2 mb-2"
+            className="block text-uColor-green font-bold text-xl mt-2 mb-2"
             htmlFor="Symptoms"
           >
-            อาการที่พบ :
+            อาการที่พบ : *
           </label>
           <div class="flex flex-col">
             <label class="flex items-center mb-2">
@@ -169,6 +169,46 @@ function patientDetails() {
               />
               <span class="ml-2 text-xl text-uColor-green">อื่นๆ</span>
             </label>
+          </div>
+
+          <div>
+            <label
+              className="block text-uColor-green font-bold text-xl mt-2 "
+              htmlFor="Symptoms"
+            >
+              คำอธิบายอาการเพิ่มเติม :
+            </label>
+            <p className="text-xl text-uColor-green mb-2">
+              (ตัวอย่าง : อาการเกิดมาแล้วกี่วัน, สาเหตุของอาการ, ฯลฯ)
+            </p>
+            <input
+              class="shadow appearance-none border w-full rounded py-2 px-3 text-uColor-green"
+              name="Symptoms"
+              type="text"
+              placeholder="Detail"
+            ></input>
+          </div>
+
+          <div>
+            <label
+              className="block text-uColor-green font-bold text-xl mt-4 mb-2 "
+              htmlFor="Durations"
+            >
+              ระยะเวลาที่เกิดอาการ : *
+            </label>
+
+            <input
+              class="shadow appearance-none border w-full rounded py-2 px-3 text-uColor-green"
+              name="Durations"
+              type="text"
+              placeholder="Durations"
+            ></input>
+          </div>
+
+          <div className="  mt-7 mb-7">
+            <button className="w-full h-10 p-10 py-2 px-4 bg-[#064635] rounded text-[#ffffff] transition duration-300 text-xl font-semibold drop-shadow-xl">
+              ต่อไป
+            </button>
           </div>
         </div>
       </div>
