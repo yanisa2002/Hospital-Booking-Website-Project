@@ -19,7 +19,7 @@ function StaffManage() {
       </div>
 
       <div className="mb-10">
-        {/* <RoleTable data={dataROLE} getDataROLE={getDataROLE}/> */}
+      
         {tabState==1 &&<><PMAtable/></>}
         {tabState==2 &&<><PNMAtable/></>}
         {tabState==3 &&<><NPtable/></>}

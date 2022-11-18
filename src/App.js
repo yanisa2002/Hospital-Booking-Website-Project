@@ -34,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/booking-ma" element={<BookingMA />} />
         <Route path="/staff" element={<StaffManage/>} />
+        <Route path="/select-hospital" element={<StaffManage/>} />
       </Routes>
     </div>
   );
