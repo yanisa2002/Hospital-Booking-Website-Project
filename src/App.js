@@ -3,8 +3,9 @@ import Navbar from "./component/navbar/navbar";
 import Navlist from "./component/navbar/navlist";
 import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
-import PatientDetails from "./page/patientDetails";
-
+import QueueHistory from "./page/QueueHistory";
+import QueueStatus from "./page/QueueStatus";
+import BookingPage from "./page/BookingPage";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +33,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/patientdetails" element={<PatientDetails />} />
+          
+        <Route path="/history" element={<QueueHistory />} />
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/history/:queue_id" element={<QueueStatus/>} />
       </Routes>
     </div>
   );

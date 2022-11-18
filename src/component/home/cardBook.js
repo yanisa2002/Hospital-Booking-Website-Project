@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 function CardBook() {
-  return <div>CardBook</div>;
+  return (
+    <div>CardBook</div>
+  )
 }
 
-export default CardBook;
+export default CardBook

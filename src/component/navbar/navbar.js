@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
+
   return (
-    <nav className="flex items-center justify-between flex-wrap  p-4 relative shadow-sm  text-uColor-green bg-[#F0BB62]">
+    <nav
+      className= "flex items-center justify-between flex-wrap  p-4 relative shadow-sm  text-uColor-green bg-[#F0BB62]"
+
+    >
       <div className="flex items-center flex-shrink-0  mr-10">
         <Link to="/" className="pl-8  text-3xl">
           QHospital
@@ -35,21 +39,27 @@ const Navbar = ({ toggle }) => {
             </Link>
           </div>
           <div className="pl-4 ">
-            <Link className="navlink" to="/">
+
+            <Link className="navlink" to="/history">
               ประวัติการจองคิว
             </Link>
           </div>
+        
+
+       
         </div>
 
         <div className="flex  items-center text-[#ffffff] ">
           <div className="flex flex-row  space-x-10  ml-auto ">
-            <a className="px-3 py-2 flex items-center"></a>
+            <a className="px-3 py-2 flex items-center">
+           
+            </a>
             {/* {sessionStorage.getItem("token") == null ? ( */}
-            <Link to="/">
-              <p className="inline-block text-sm text-white px-4 py-3    mt-0 bg-uColor-green">
-                Log in
-              </p>
-            </Link>
+              <Link to="/">
+                <p className="inline-block text-sm text-white px-4 py-3    mt-0 bg-uColor-green">
+                  Log in
+                </p>
+              </Link>
             {/* ) : (
               <a
                 class="inline-block text-sm text-white px-4 py-3 rounded-full mt-0"

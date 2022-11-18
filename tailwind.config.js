@@ -1,19 +1,27 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  important: "#root",
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  important:'#root',
   theme: {
-    extend: {
+    extend: { 
       fontFamily: {
-        jamjuree: " 'Bai Jamjuree', sans-serif",
+       
+        jamjuree:" 'Bai Jamjuree', sans-serif",
+       
+      },
+      colors: {
+        
+        'uColor': {
+  
+          green: '#064635',
+          DEFAULT: '#E8E8CC',
+          bg: '#F0BB62',
+        },
+      
       },
     },
-    colors: {
-      uColor: {
-        green: "#064635",
-        DEFAULT: "#E8E8CC",
-        bg: "#F0BB62",
-      },
-    },
+   
   },
   plugins: [],
-};
+}
