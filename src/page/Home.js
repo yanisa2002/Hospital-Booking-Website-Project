@@ -2,7 +2,7 @@ import React from 'react'
 import CardBook from '../component/home/cardBook'
 
 function Home() {
-  const BookingType=[{title:'มีใบนัด',des:'ผู้ป่วยที่มีใบนัดพบแพทย์',np:'/booking-ma'},{title:'ไม่มีใบนัด',des:'ผู้ป่วยที่ไม่มีใบนัดพบแพทย์',np:'/'}]
+  const BookingType=[{title:'มีใบนัด',des:'ผู้ป่วยที่มีใบนัดพบแพทย์',np:'/booking-ma'},{title:'ไม่มีใบนัด',des:'ผู้ป่วยที่ไม่มีใบนัดพบแพทย์',np:'/select-hospital'}]
   const handleClickScroll = () => {
     const element = document.getElementById('section-1');
     if (element) {

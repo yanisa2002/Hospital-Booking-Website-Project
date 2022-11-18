@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
 import BookingMA from "./page/BookingMA";
 import StaffManage from "./page/StaffManage";
+import SelectHonmap from "./page/SelectHonmap";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +35,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/booking-ma" element={<BookingMA />} />
         <Route path="/staff" element={<StaffManage/>} />
-        <Route path="/select-hospital" element={<StaffManage/>} />
+        <Route path="/select-hospital" element={<SelectHonmap/>} />
       </Routes>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function ModalDetail(props) {
   const { setModalOn, type } = props;
+  const [approve,setApprove] = useState('');
   return (
     <div class=" fixed inset-0 z-50 bg-black  bg-opacity-50 ">
       <div class="flex h-screen justify-center items-center  ">
@@ -79,53 +80,53 @@ function ModalDetail(props) {
               <h2 className="text-left mx-10 font-bold text-lg border-b-2 border-uColor-green w-36  mb-4 ">
                 ส่วนของเจ้าหน้าที่
               </h2>
-              <div className="px-10 text-left mb-3 grid grid-cols-3 gap-3">
-              <div class="flex items-center pl-4 rounded border border-gray-200 ">
+              <div className="px-10 text-left mb-3 grid grid-cols-2 gap-3">
+              <div className="flex items-center pl-4 rounded border border-gray-200 "  onClick={()=>{setApprove(1)}}>
                   <input
                     id="bordered-radio-1"
                     type="radio"
-                    value=""
-                    name="bordered-radio"
+                    value={approve}
+                    name="choice"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  "
                   />
                   <label
                     for="bordered-radio-1"
-                    class="py-4 ml-2 w-full text-sm font-medium text-gray-900 "
+                    className="py-4 ml-2 w-full text-sm font-medium text-gray-900 "
                   >
                      อนุมัติ
                   </label>
                 </div>
-                <div class="flex items-center pl-4 rounded border border-gray-200 ">
+                <div className="flex items-center pl-4 rounded border border-gray-200 " onClick={()=>{setApprove(0)}}>
                   <input
-                    id="bordered-radio-1"
+                    id="bordered-radio-2"
                     type="radio"
-                    value=""
-                    name="bordered-radio"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  "
+                    value={approve}
+                    name="choice"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
                   />
                   <label
-                    for="bordered-radio-1"
-                    class="py-4 ml-2 w-full text-sm font-medium text-gray-900 "
+                    for="bordered-radio-2"
+                    className="py-4 ml-2 w-full text-sm font-medium text-gray-900 "
                   >
                      ไม่อนุมัติ
                   </label>
                 </div>
-                <div class="flex items-center pl-4 rounded border border-gray-200 ">
+                {/* <div className="flex items-center pl-4 rounded border border-gray-200 ">
                   <input
-                    checked
-                    id="bordered-radio-2"
+                  
+                    id="bordered-radio-3"
                     type="radio"
-                    value=""
-                    name="bordered-radio"
+                    value={approve}
+                    name="choice"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  "
                   />
                   <label
-                    for="bordered-radio-2"
+                    for="bordered-radio-3"
                     className="py-4 ml-2 w-full text-sm font-medium text-gray-900"
                   >
                     ยังไม่ตรวจสอบ
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="px-10 text-left mb-3">
                 <p className=" font-medium mb-2">เลือกแผนก</p>
