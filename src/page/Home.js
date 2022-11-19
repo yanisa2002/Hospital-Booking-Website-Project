@@ -41,7 +41,7 @@ function Home() {
           </div>
           <div class="basis-1/2">
             <button className="w-full h-40 p-10 py-2 px-4 bg-[#ffffff] rounded text-[#064635] hover:bg-[#064635] hover:text-[#ffffff] transition duration-300 text-4xl font-semibold drop-shadow-xl">
-              ไม่มีใบนัดตรวจ
+              <a href="/patientdetails">ไม่มีใบนัดตรวจ</a>
             </button>
           </div>
         </div>
