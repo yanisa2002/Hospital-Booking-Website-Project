@@ -1,6 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 
-function patientDetails() {
+const PatientDetails = () => {
+  const [formErrors, setFormErrors] = useState({});
+
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [idCard, setIDCard] = useState("");
+
+  const [moreDetail, setMoreDetail] = useState("");
+
+  let defaultValues = {
+    //Title: title,
+    Firstname: firstname,
+    Lastname: lastname,
+    IDCard: idCard,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(defaultValues));
+    if (Object.keys(formErrors).length === 0) {
+      // Register_();
+    }
+    console.log(defaultValues);
+  };
+
+  const validate = (values) => {
+    console.log(values);
+    let errors = {};
+    const thai_regex = /^[ก-๏]{0,31}$/;
+
+    if (firstname === "") {
+      errors["Firstname"] = "กรุณากรอกชื่อ";
+    } else if (!thai_regex.test(firstname)) {
+      errors["Firstname"] = "กรุณากรอกเป็นภาษาไทย";
+    }
+
+    if (lastname === "") {
+      errors["Lastname"] = "กรุณากรอกนามสกุล";
+    } else if (!/^[ก-๏\s]{0,31}$/.test(lastname)) {
+      errors["Lastname"] = "กรุณากรอกเป็นภาษาไทย";
+    }
+
+    if (idCard === "") {
+      errors["IDCard"] = "กรุณากรอกเลขประจำตัวประชาชน";
+    } else if (!/^\d+$/.test(idCard)) {
+      errors["IDCard"] = "กรุณากรอกเป็นตัวเลข";
+    } else if (idCard.length !== 13) {
+      errors["IDCard"] = "กรุณากรอกให้ครบ 13 หลัก";
+    }
+    console.log("error -> ", errors);
+    return errors;
+  };
   return (
     <div className="flex justify-center bg-uColor-bg font-prompt min-w-[800px] h-full">
       <div className=" flex-col w-[70%] min-w-[800px]">
@@ -25,7 +76,10 @@ function patientDetails() {
                 name="Firstname"
                 type="text"
                 placeholder="Firstname"
+                value={firstname}
+                onChange={(event) => setFirstname(event.target.value)}
               ></input>
+              <p className="text-red-600">{formErrors.Firstname}</p>
             </div>
             <div className="flex flex-col">
               <label
@@ -39,7 +93,10 @@ function patientDetails() {
                 name="Lastname"
                 type="text"
                 placeholder="Lastname"
+                value={lastname}
+                onChange={(event) => setLastname(event.target.value)}
               ></input>
+              <p className="text-red-600">{formErrors.Lastname}</p>
             </div>
           </div>
           <div className="flex flex-col">
@@ -54,7 +111,11 @@ function patientDetails() {
               name="IDCard"
               type="text"
               placeholder="Personal ID"
+              maxLength={13}
+              value={idCard}
+              onChange={(event) => setIDCard(event.target.value)}
             ></input>
+            <p className="text-red-600">{formErrors.IDCard}</p>
           </div>
         </div>
         <div className="flex flex-col p-10 m-8 bg-[#ffffff] rounded-xl shadow-xl">
@@ -214,6 +275,6 @@ function patientDetails() {
       </div>
     </div>
   );
-}
+};
 
-export default patientDetails;
+export default PatientDetails;
