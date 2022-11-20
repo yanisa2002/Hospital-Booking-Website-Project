@@ -11,7 +11,8 @@ function Home() {
   };
 
   return (
-    <div className="flex justify-center bg-uColor-bg font-prompt min-w-[800px] h-full">
+    <>
+    <div className="flex justify-center bg-uColor-bg font-prompt min-w-[800px] h-full pb-52">
       <div className=" flex-col w-[80%] min-w-[800px]">
         <div className=' xl:grid grid-cols-2 lg:block mt-10 '>
           <div className='mt-28 xl:text-left lg:text-center'>
@@ -22,19 +23,37 @@ function Home() {
             </div>
           <div className='flex'><img className='max-w-full ' src='/img/consultancy 1.png'/></div>
           </div>
-          <div className='flex justify-center mt-60'>
+         
+        </div>
+        </div>
+        <div className='flex justify-center bg-uColor-table'>
+          <div className='flex-col w-[80%] min-w-[800px]'>
+            <div className='xl:grid grid-cols-2 lg:block  '>
+            <div className='flex'><img className='max-w-full ' src='/img/hospital.png'/></div>
+            <div className=' mt-28 ml-36 '>
+            <div className='xl:text-left lg:text-center'><p className=' mb-4  text-xl font-medium'>เลือกรูปแบบ</p><p className=' text-5xl font-bold'>รูปแบบการนัด</p></div>
+            <p className=' mt-14 text-lg xl:text-left lg:text-center'>เลือกการนัดหมายตามความต้องการ และ ความสะดวกของคุณ</p>
+            <div id="section-1" className='grid grid-cols-1 justify-center lg:justify-items-center xl:justify-items-start mb-10'>
+                <CardBook title={BookingType[0].title} descript={BookingType[0].des} newPage={BookingType[0].np}/>
+                <CardBook title={BookingType[1].title} descript={BookingType[1].des} newPage={BookingType[1].np} />
+              </div> 
+              {/* <div className='w-full border-b border-uColor-green mb-10 mt-2'></div> */}
+            </div>
+            </div>
+          {/* <div className='flex justify-center mt-40'>
             <div  className=' justify-center '>
               <p className='text-2xl font-bold text-center'>รูปแบบการจอง</p>
-              <div className='w-full border-b border-uColor-green mb-16 mt-2'></div>
+              <div className='w-full border-b border-uColor-green mb-10 mt-2'></div>
 
             </div>
           </div>
-            <div id="section-1" className=' grid xl:grid-cols-2 lg:grid-cols-1 justify-items-center mb-10'>
+            <div id="section-1" className=' grid xl:grid-cols-2 lg:grid-cols-1  justify-items-center mb-10'>
                 <CardBook title={BookingType[0].title} descript={BookingType[0].des} newPage={BookingType[0].np}/>
                 <CardBook title={BookingType[1].title} descript={BookingType[1].des} newPage={BookingType[1].np} />
-              </div>
+              </div> */}
+          </div>
         </div>
-        </div>
+        </>
   )
 }
 

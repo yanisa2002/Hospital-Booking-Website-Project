@@ -5,8 +5,8 @@ const Navbar = ({ toggle }) => {
   const location = useLocation();
   return (
     <nav
-      className={`flex items-center justify-between flex-wrap  p-4 relative shadow-sm ${
-        location.pathname == "/staff" ? "bg-white shadow-md" : "bg-[#F0BB62]"
+      className={`flex items-center justify-between flex-wrap  p-4 relative shadow-md ${
+        location.pathname == "/staff" ? "bg-white shadow-md" : " bg-uColor-bg"
       } text-uColor-green `}
     >
       <div className="flex items-center flex-shrink-0  mr-10">

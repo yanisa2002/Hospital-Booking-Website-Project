@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CardBook(props) {
   const{title, descript,newPage }=props;
   return (
-    <div className="relative block w-3/5 p-2 bg-gray-900 group">
+    <div className="relative block w-3/5 p-2 bg-gray-900 group shadow-md mt-10 ">
       <div className="absolute inset-0 bg-white  flex justify-items-center p-5 group-hover:opacity-50">
       
       <img className='max-w-full bg-lime-100 p-1 mr-5' src={`/img/${title=='มีใบนัด'?'icons-A.png':'icons-notA.png'}`}/>
