@@ -2,26 +2,26 @@ import React, { useState } from "react";
 
 const PatientDetails = () => {
   const [formErrors, setFormErrors] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [idCard, setIDCard] = useState("");
+  const [illness, setIllness] = useState("");
 
   const [moreDetail, setMoreDetail] = useState("");
+  const [Duration, setDuration] = useState("");
 
   let defaultValues = {
-    //Title: title,
     Firstname: firstname,
     Lastname: lastname,
     IDCard: idCard,
+    illness: illness,
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(defaultValues));
-    if (Object.keys(formErrors).length === 0) {
-      // Register_();
-    }
     console.log(defaultValues);
   };
 
@@ -79,7 +79,7 @@ const PatientDetails = () => {
                 value={firstname}
                 onChange={(event) => setFirstname(event.target.value)}
               ></input>
-              <p className="text-red-600">{formErrors.Firstname}</p>
+              <p className="text-[#FF0000]">{formErrors.Firstname}</p>
             </div>
             <div className="flex flex-col">
               <label
@@ -96,7 +96,7 @@ const PatientDetails = () => {
                 value={lastname}
                 onChange={(event) => setLastname(event.target.value)}
               ></input>
-              <p className="text-red-600">{formErrors.Lastname}</p>
+              <p className="text-[#FF0000]">{formErrors.Lastname}</p>
             </div>
           </div>
           <div className="flex flex-col">
@@ -115,7 +115,7 @@ const PatientDetails = () => {
               value={idCard}
               onChange={(event) => setIDCard(event.target.value)}
             ></input>
-            <p className="text-red-600">{formErrors.IDCard}</p>
+            <p className="text-[#FF0000]">{formErrors.IDCard}</p>
           </div>
         </div>
         <div className="flex flex-col p-10 m-8 bg-[#ffffff] rounded-xl shadow-xl">
@@ -258,12 +258,18 @@ const PatientDetails = () => {
               ระยะเวลาที่เกิดอาการ : *
             </label>
 
-            <input
-              class="shadow appearance-none border w-full rounded py-2 px-3 text-uColor-green"
-              name="Durations"
-              type="text"
-              placeholder="Durations"
-            ></input>
+            <select
+              className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+              name="Duration"
+              value={Duration}
+              onChange={(event) => setDuration(event.target.value)}
+            >
+              <option value="1">1</option>
+              <option value="2">2-3</option>
+              <option value="3">4-7</option>
+              <option value="4">มากกว่า 7 วัน</option>
+            </select>
+            <p className="text-[#FF0000]">{formErrors.Title}</p>
           </div>
 
           <div className="  mt-7 mb-7">
