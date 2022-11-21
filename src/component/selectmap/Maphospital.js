@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState } from "react";
 import { MapContainer, TileLayer, Marker,useMap,Popup } from "react-leaflet";
 import L, { divIcon } from "leaflet";
 import useGeoLocation from "./Geolocation";
@@ -6,10 +6,11 @@ import demohospital from "../demodata/hospital";
 import hospital from "./marker";
 
 function Mapview(props) {
-  const {setDetail,detail} =props
+  const {setDetail,setModalOn,test,modalOn} =props
   const userlocation = useGeoLocation();
-  const defaultCenter = [13.45, 100.28];
-  const defaultZoom = 11;
+  const defaultCenter = test;
+  const [center, setCenter] = useState([13.45, 100.28]); 
+  const defaultZoom = 13;
   const iconPlace = divIcon({
     html: `
     <svg class="h-12 w-12 text-[#E8E8CC]"  fill=" #064635" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,7 +22,14 @@ function Mapview(props) {
     iconSize: [24, 40],
     iconAnchor: [12, 40],
   });
-
+  function SetMapView() {
+    const map = useMap();
+    // map.setView(mapcenter);
+    map.flyTo(center)
+    return null;
+  }
+  
+ console.log(test)
   ///hospital
   const markerElements = demohospital.map((location) => {
     const {
@@ -44,11 +52,11 @@ function Mapview(props) {
             key={`${hname}`} 
             position={[lat,log]}                
             icon ={iconHospital}
-            // onclick={() => console.log("E hereeeee")}
-            onclick="console.log('The link was clicked.'); return false"
-            eventHandlers={{ click: () =>{ setDetail(hname);}}}
+                     
+            eventHandlers={{ click: () =>{ setDetail(hname);setModalOn(true);setCenter([lat,log])}}}
 
             >
+              
           
         </Marker>
        
@@ -56,12 +64,7 @@ function Mapview(props) {
 });
 
   
-  function SetMapView({ mapcenter }) {
-    const map = useMap();
-    map.setView(mapcenter, 20);
 
-    return null;
-  }
   // console.log([userlocation.coordinates.lat, userlocation.coordinates.lng]);
   return (
     <MapContainer
@@ -70,15 +73,12 @@ function Mapview(props) {
       scrollWheelZoom={true}
       className=" h-[92vh] z-10 h"
     >
-      <SetMapView mapcenter={[
-            userlocation.coordinates.lat,
-            userlocation.coordinates.lng,
-          ]} />
+      
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      
+      {modalOn&&<SetMapView/>}
       {userlocation.load && !userlocation.error && (
         <>
         <Marker
@@ -88,12 +88,9 @@ function Mapview(props) {
           ]}
           icon={iconPlace}
         >
-
+         
           {/* <Popup>ตำแหน่งของคุณ</Popup> */}
-          {/* <SetMapView mapcenter={[
-            userlocation.coordinates.lat,
-            userlocation.coordinates.lng,
-          ]} /> */}
+         
         </Marker>
         
         </>
