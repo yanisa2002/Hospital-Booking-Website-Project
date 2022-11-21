@@ -11,7 +11,7 @@ module.exports = {
       uColor: {
         green: "#064635",
         DEFAULT: "#E8E8CC",
-        bg: "#F0BB62",
+        bg: "#FFD998",
       },
     },
   },
