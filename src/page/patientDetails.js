@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const PatientDetails = () => {
   const [formErrors, setFormErrors] = useState({});
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -247,6 +247,8 @@ const PatientDetails = () => {
               name="Symptoms"
               type="text"
               placeholder="Detail"
+              value={moreDetail}
+              onChange={(event) => setMoreDetail(event.target.value)}
             ></input>
           </div>
 
@@ -264,9 +266,10 @@ const PatientDetails = () => {
               value={Duration}
               onChange={(event) => setDuration(event.target.value)}
             >
-              <option value="1">1</option>
-              <option value="2">2-3</option>
-              <option value="3">4-7</option>
+              <option value="">เลือก</option>
+              <option value="1">1 วัน</option>
+              <option value="2">2-3 วัน</option>
+              <option value="3">4-7 วัน</option>
               <option value="4">มากกว่า 7 วัน</option>
             </select>
             <p className="text-[#FF0000]">{formErrors.Title}</p>
