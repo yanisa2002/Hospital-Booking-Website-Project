@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardBook from '../component/home/cardBook'
 
 function Home() {
-  const BookingType=[{title:'มีใบนัด',des:'ผู้ป่วยที่มีใบนัดพบแพทย์',np:'/booking-ma'},{title:'ไม่มีใบนัด',des:'ผู้ป่วยที่ไม่มีใบนัดพบแพทย์',np:'/select-hospital'}]
+  const [change,setChange] = useState(false);
+  const BookingType=[{title:'มีใบนัด',des:'ผู้ป่วยที่มีใบนัดพบแพทย์',np:'/booking-ma'},{title:'ไม่มีใบนัด',des:'ผู้ป่วยที่ไม่มีใบนัดพบแพทย์',np:'/booking-nma'}]
   const handleClickScroll = () => {
     const element = document.getElementById('section-1');
     if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const changSection =()=>{
+    if(window.scrollY>= 90){
+      setChange(true);
+    }else{
+      setChange(false);
+    }
+  }
+
+  window.addEventListener('scroll',changSection)
 
   return (
     <>
@@ -26,14 +37,14 @@ function Home() {
          
         </div>
         </div>
-        <div className='flex justify-center bg-uColor-table'>
+        <div className={`flex justify-center  bg-uColor-table `}>
           <div className='flex-col w-[80%] min-w-[800px]'>
             <div className='xl:grid grid-cols-2 lg:block  '>
             <div className='flex'><img className='max-w-full ' src='/img/hospital.png'/></div>
             <div className=' mt-28 ml-36 '>
             <div className='xl:text-left lg:text-center'><p className=' mb-4  text-xl font-medium'>เลือกรูปแบบ</p><p className=' text-5xl font-bold'>รูปแบบการนัด</p></div>
             <p className=' mt-14 text-lg xl:text-left lg:text-center'>เลือกการนัดหมายตามความต้องการ และ ความสะดวกของคุณ</p>
-            <div id="section-1" className='grid grid-cols-1 justify-center lg:justify-items-center xl:justify-items-start mb-10'>
+            <div id="section-1" className={`grid grid-cols-1 justify-center lg:justify-items-center xl:justify-items-start mb-10 ${change?" translate-x-3 ease-in duration-300 ":"translate-x-0"}`}>
                 <CardBook title={BookingType[0].title} descript={BookingType[0].des} newPage={BookingType[0].np}/>
                 <CardBook title={BookingType[1].title} descript={BookingType[1].des} newPage={BookingType[1].np} />
               </div> 

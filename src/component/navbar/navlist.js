@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link} from "react-router-dom";
+import {Link,useLocation} from "react-router-dom";
 function Navlist(props) {
     const{toggle,isOpen} = props
+    const location = useLocation();
     return (
       <div
         className={
@@ -11,16 +12,19 @@ function Navlist(props) {
         }
         onClick={toggle}
       >
+        {location.pathname == "/staff" ?'':<>
         <div className="pt-3 text-base hover:text-lg hover:font-semibold transition duration-0 hover:duration-700">
           <Link className="p-4  " to="/">
             จองคิว
           </Link>
         </div>
         <div className=" text-base hover:text-lg hover:font-semibold transition duration-0 hover:duration-700">
-          <Link className="p-4 " to="/">
+          <Link className="p-4 " to="/history">
             ประวัติการจองคิว
           </Link>
         </div>
+        </>}
+        
 
         <div className="pb-4">
           {/* {sessionStorage.getItem("token") == null ? ( */}

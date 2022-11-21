@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Detailpopup(props) {
   const { setModalOn, data } = props;
@@ -28,9 +29,11 @@ function Detailpopup(props) {
         
         <div className="flex p-5 justify-center">
           <div className=" mt-6">
+            <Link to='/booking' state={{hname:data}}>
             <button className="transition duration-500 ease-in-out bg-uColor-green text-[#ffff] p-3 px-10 transform hover:-translate-y-1 hover:scale-110">
               จองคิว
             </button>
+            </Link>
           </div>
         </div>
       </div>

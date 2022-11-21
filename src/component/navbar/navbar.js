@@ -6,7 +6,7 @@ const Navbar = ({ toggle }) => {
   return (
     <nav
       className={`flex items-center justify-between flex-wrap  p-4 relative shadow-md ${
-        location.pathname == "/staff" ? "bg-white shadow-md" : " bg-uColor-bg"
+        location.pathname == "/staff" ? "bg-white shadow-md" :location.pathname == "/login" ||location.pathname == "/register"?"hidden" :" bg-uColor-bg"
       } text-uColor-green `}
     >
       <div className="flex items-center flex-shrink-0  mr-10">
@@ -34,7 +34,7 @@ const Navbar = ({ toggle }) => {
 
       <div className="w-full  flex-grow md:flex md:items-center md:w-auto hidden">
         <div className="text-sm flex md:flex-grow">
-          {location.pathname == "/" ? (
+          {location.pathname == "/staff" ? (
             ""
           ) : (
             <>
@@ -44,7 +44,7 @@ const Navbar = ({ toggle }) => {
                 </Link>
               </div>
               <div className="pl-4 ">
-                <Link className="navlink" to="/">
+                <Link className="navlink" to="/history">
                   ประวัติการจองคิว
                 </Link>
               </div>

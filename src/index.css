@@ -9,3 +9,6 @@
 .staffTab-active{
     @apply cursor-pointer font-medium border-b-4 border-uColor-bg;
 }
+.navlink{
+    @apply hover:font-medium hover:text-base duration-300 hover:text-emerald-600
+}

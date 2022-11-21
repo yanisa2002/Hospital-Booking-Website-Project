@@ -4,6 +4,7 @@ import validateInfo from "./validate";
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 function FormInfo() {
   const [file, setFile] = useState(null);
+  const [URLfile, setURLFile] = useState(null);
   const [hSearch, sethSearch] = useState("");
   const [allInfo, setAllInfo] = useState({
     firstname: "",
@@ -26,6 +27,7 @@ function FormInfo() {
       return;
     }
     setFile(file);
+    setURLFile(URL.createObjectURL(file));
   };
 
   const handleSubmit = (e) => {
@@ -43,7 +45,7 @@ function FormInfo() {
     { name: "รพ.ภูมิพลอดุลยเดช" },
   ];
 
-  console.log(allInfo);
+  console.log('file',file);
   return (
    
     <div className="rounded-lg shadow bg-[#FFFFFF] w-[550px] border mb-11  ">
@@ -156,7 +158,7 @@ function FormInfo() {
                 accept=".png, .jpg, .jpeg"
                 className="border border-gray-300 rounded-lg w-full p-2"
               ></input>
-
+               <img src={URLfile} />
               <p className="text-red-600">{formErrors.file}</p>
             </div>
             <div className="px-10 text-left mb-3">
