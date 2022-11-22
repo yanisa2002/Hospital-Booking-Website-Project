@@ -12,6 +12,7 @@ import PatientDetails from "./page/patientDetails";
 import QueueHistory from "./page/QueueHistory";
 import QueueStatus from "./page/QueueStatus";
 import BookingPage from "./page/BookingPage";
+import Registration from "./page/Registration";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/registration" element={<Registration/>}/>
         <Route path="/booking-nma" element={<PatientDetails/>} />
         <Route path="/booking-ma" element={<BookingMA />} />
         <Route path="/staff" element={<StaffManage/>} />

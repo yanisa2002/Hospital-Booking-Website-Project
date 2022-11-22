@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formErrors, setFormErrors] = useState({});
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  
+  let navigate = useNavigate()
 
   let defaultValues = {
     Email: email,
@@ -29,8 +32,7 @@ const Register = () => {
           </div>
 
           <div
-            className="flex flex-col p-8 m-8 bg-[#ffffff]  md:min-w-[600px] 
-     sm:min-w-[400px] min-w-[300px] "
+            className="flex flex-col p-8 bg-[#ffffff]   "
           >
             <label className="block text-gray-darker text-lg font-bold mb-8">
               สร้างบัญชีของคุณ
@@ -48,7 +50,7 @@ const Register = () => {
                   id="email"
                   type="text"
                   placeholder="Email"
-                  pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i"
+                  // pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i"
                   reduired
                 />
               </div>
@@ -72,10 +74,11 @@ const Register = () => {
 
               <div className="mb-7">
                 <button
+                 onClick={()=>{navigate("/registration", { replace: true });}}
                   type="submit"
                   className="w-full inline-flex items-center justify-center px-4 py-2 bg-uColor-green border border-transparent rounded-md font-semibold capitalize text-[#ffffff] active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition"
                 >
-                  สมัคร
+                  <a href="/registration">สมัคร</a>
                 </button>
               </div>
             </form>
@@ -89,7 +92,7 @@ const Register = () => {
           </div>
           {/* )} */}
         </div>
-      
+        
     </div>
   );
 };
