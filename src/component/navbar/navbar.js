@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
+  const location = useLocation();
   return (
-    <nav className="flex items-center justify-between flex-wrap  p-4 relative shadow-sm  text-uColor-green bg-[#F0BB62]">
+    <nav
+      className={`flex items-center justify-between flex-wrap  p-4 relative shadow-md ${
+        location.pathname == "/staff" ? "bg-white shadow-md" :location.pathname == "/login" ||location.pathname == "/register"||location.pathname == "/registration"?"hidden" :" bg-uColor-bg"
+      } text-uColor-green `}
+    >
       <div className="flex items-center flex-shrink-0  mr-10">
         <Link to="/" className="pl-8  text-3xl">
           QHospital
@@ -29,21 +34,27 @@ const Navbar = ({ toggle }) => {
 
       <div className="w-full  flex-grow md:flex md:items-center md:w-auto hidden">
         <div className="text-sm flex md:flex-grow">
-          <div>
-            <Link className="navlink" to="/">
-              จองคิว
-            </Link>
-          </div>
-          <div className="pl-4 ">
-            <Link className="navlink" to="/">
-              ประวัติการจองคิว
-            </Link>
-          </div>
+          {location.pathname == "/staff" ? (
+            ""
+          ) : (
+            <>
+              <div>
+                <Link className="navlink" to="/">
+                  จองคิว
+                </Link>
+              </div>
+              <div className="pl-4 ">
+                <Link className="navlink" to="/history">
+                  ประวัติการจองคิว
+                </Link>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="flex  items-center text-[#ffffff] ">
           <div className="flex flex-row  space-x-10  ml-auto ">
-            <a className="px-3 py-2 flex items-center"></a>
+            {/* <a className="px-3 py-2 flex items-center"></a> */}
             {/* {sessionStorage.getItem("token") == null ? ( */}
             <Link to="/">
               <p className="inline-block text-sm text-white px-4 py-3    mt-0 bg-uColor-green">

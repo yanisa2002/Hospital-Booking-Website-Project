@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const PatientDetails = () => {
   const [formErrors, setFormErrors] = useState({});
   // const [isChecked, setIsChecked] = useState(false);
@@ -10,7 +10,23 @@ const PatientDetails = () => {
   const [illness, setIllness] = useState("");
 
   const [moreDetail, setMoreDetail] = useState("");
-  const [Duration, setDuration] = useState("");
+  const [duration, setDuration] = useState("");
+
+  const [checked, setChecked] = useState([]);
+  const illList = [
+    "ปวดหัว",
+    "ปวดตา ตาพร่า",
+    "เจ็บคอ",
+    "เจ็บหน้าอก",
+    "มีไข้",
+    "ปวดท้อง",
+    "ปวดเข่า ปวดเมื่อย",
+    "ปัสสาวะหรืออุจจาระผิดปกติ",
+    "บาดเจ็บเป็นแผล",
+    "เป็นผื่น แพ้",
+    "คลื่นไส้ อาเจียน",
+    "อื่นๆ",
+  ];
 
   let defaultValues = {
     Firstname: firstname,
@@ -18,6 +34,26 @@ const PatientDetails = () => {
     IDCard: idCard,
     illness: illness,
   };
+
+  const handleCheck = (event) => {
+    var updatedList = [...checked];
+    if (event.target.checked) {
+      updatedList = [...checked, event.target.value];
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+    setChecked(updatedList);
+    setIllness(updatedList);
+  };
+
+  const checkedItems = checked.length
+    ? checked.reduce((total, item) => {
+        return total + ", " + item;
+      })
+    : "";
+
+  var isChecked = (item) =>
+    checked.includes(item) ? "checked-item" : "not-checked-item";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,6 +84,10 @@ const PatientDetails = () => {
       errors["IDCard"] = "กรุณากรอกเป็นตัวเลข";
     } else if (idCard.length !== 13) {
       errors["IDCard"] = "กรุณากรอกให้ครบ 13 หลัก";
+    }
+
+    if (idCard === "") {
+      errors["Duration"] = "กรุณาเลือกระยะเวลา";
     }
     console.log("error -> ", errors);
     return errors;
@@ -128,7 +168,25 @@ const PatientDetails = () => {
           >
             อาการที่พบ : *
           </label>
-          <div class="flex flex-col">
+
+          <div className="illList  ">
+            <div className="list-container text-xl text-uColor-green">
+              {illList.map((item, index) => (
+                <div key={index}>
+                  <input
+                    class="form-checkbox h-5 w-5 mr-2 accent-uColor-green "
+                    value={item}
+                    type="checkbox"
+                    onChange={handleCheck}
+                  />
+                  <span className={isChecked(item)}>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* <div>{`Items checked are: ${checkedItems}`}</div> */}
+          {/* <div class="flex flex-col">
             <label class="flex items-center mb-2">
               <input
                 type="checkbox"
@@ -230,7 +288,7 @@ const PatientDetails = () => {
               />
               <span class="ml-2 text-xl text-uColor-green">อื่นๆ</span>
             </label>
-          </div>
+          </div> */}
 
           <div>
             <label
@@ -240,7 +298,7 @@ const PatientDetails = () => {
               คำอธิบายอาการเพิ่มเติม :
             </label>
             <p className="text-xl text-uColor-green mb-2">
-              (ตัวอย่าง : อาการเกิดมาแล้วกี่วัน, สาเหตุของอาการ, ฯลฯ)
+              (ตัวอย่าง : สาเหตุของอาการ, ฯลฯ)
             </p>
             <input
               class="shadow appearance-none border w-full rounded py-2 px-3 text-uColor-green"
@@ -263,7 +321,7 @@ const PatientDetails = () => {
             <select
               className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
               name="Duration"
-              value={Duration}
+              value={duration}
               onChange={(event) => setDuration(event.target.value)}
             >
               <option value="">เลือก</option>
@@ -276,9 +334,11 @@ const PatientDetails = () => {
           </div>
 
           <div className="  mt-7 mb-7">
-            <button className="w-full h-10 p-10 py-2 px-4 bg-[#064635] rounded text-[#ffffff] transition duration-300 text-xl font-semibold drop-shadow-xl">
-              ต่อไป
-            </button>
+            <Link to="/select-hospital">
+              <button className="w-full h-10 p-10 py-2 px-4 bg-[#064635] rounded text-[#ffffff] transition duration-300 text-xl font-semibold drop-shadow-xl">
+                ต่อไป
+              </button>
+            </Link>
           </div>
         </div>
       </div>

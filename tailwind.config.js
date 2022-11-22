@@ -6,12 +6,13 @@ module.exports = {
       fontFamily: {
         jamjuree: " 'Bai Jamjuree', sans-serif",
       },
-    },
-    colors: {
-      uColor: {
-        green: "#064635",
-        DEFAULT: "#E8E8CC",
-        bg: "#FFD998",
+      colors: {
+        uColor: {
+          green: "#064635",
+          DEFAULT: "#E8E8CC",
+          bg: "#FFD998",
+          table: "#FFF1D8",
+        },
       },
     },
   },

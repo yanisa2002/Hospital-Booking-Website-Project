@@ -3,10 +3,17 @@ import Navbar from "./component/navbar/navbar";
 import Navlist from "./component/navbar/navlist";
 import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
-import PatientDetails from "./page/patientDetails";
+import BookingMA from "./page/BookingMA";
+import StaffManage from "./page/StaffManage";
+import SelectHonmap from "./page/SelectHonmap";
 import Login from "./page/login";
 import Register from "./page/register";
-
+import PatientDetails from "./page/patientDetails";
+import QueueHistory from "./page/QueueHistory";
+import QueueStatus from "./page/QueueStatus";
+import BookingPage from "./page/BookingPage";
+import UserProfilePage from "./page/UserProfilePage";
+import Registration from "./page/Registration";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,9 +41,17 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/patientdetails" element={<PatientDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/registration" element={<Registration/>}/>
+        <Route path="/booking-nma" element={<PatientDetails />} />
+        <Route path="/booking-ma" element={<BookingMA />} />
+        <Route path="/staff" element={<StaffManage />} />
+        <Route path="/select-hospital" element={<SelectHonmap />} />
+        <Route path="/history" element={<QueueHistory />} />
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/queue/:queue_id" element={<QueueStatus />} />
+        <Route path="/profile" element={<UserProfilePage />} />
       </Routes>
     </div>
   );
