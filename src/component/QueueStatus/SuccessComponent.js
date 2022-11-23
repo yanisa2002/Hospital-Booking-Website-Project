@@ -18,7 +18,7 @@ function SuccessComponent(props) {
         <p className='py-2'>คิวปัจจุบัน YY</p>
         <p className='py-2'>สถานที่ ติดต่อแผนก บลาๆๆ</p>
         <div className='pt-2 pb-8'>
-            <span className='pr-8'>วันที่ 1/11/2022</span>
+            <span className='pr-8'>วันที่ 24/11/2022</span>
             <span>เวลา 10:00 - 10:30น.</span>
         </div>
         <button className='bg-red-600 text-white px-4 py-1'>ยกเลิกคิว</button>

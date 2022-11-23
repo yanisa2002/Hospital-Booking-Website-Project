@@ -6,7 +6,8 @@ import demoPic from '../../asset/demo.jpg'
 //Import icon
 import { BsCheck2Circle } from 'react-icons/bs';
 
-function CardQueueComponent() {
+function CardQueueComponent(props) {
+
   return (
     <div className = "grid grid-cols-4 grid-rows-2 bg-white mb-4 p-2 text-lg rounded-xl w-[85rem] max-w-6xl">
         <div className='row-span-2 '>
@@ -25,7 +26,7 @@ function CardQueueComponent() {
         <div className='font-semibold'>เวลานัด: </div>
         <div className='text-sm flex flex-col items-center'>
             <p className='text-uColor"'>จองคิวสำเร็จ</p>
-            <p>01-11-2565 09:55</p>
+            <p>24-11-2565 10:30น.</p>
         </div>
 
     </div>

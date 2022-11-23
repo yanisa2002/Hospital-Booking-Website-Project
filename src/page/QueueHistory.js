@@ -12,9 +12,9 @@ function QueueHistory() {
         <div className='flex flex-col items-center'>
 
               <Link to={`/queue/123`}>
-                <CardQueueComponent/>
+                <CardQueueComponent />
               </Link>
-              <CardQueueComponent/>
+
 
         </div>
 

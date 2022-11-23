@@ -26,9 +26,7 @@ function BookingPage() {
     } else if (!TelNum.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
       setErr("กรุณากรอกเป็นตัวเลข");
     }
-    else{
-      setErr("pass")
-    }
+
   }
   const handlerSubmit = (event) => {
     event.preventDefault()
@@ -103,7 +101,7 @@ function BookingPage() {
               <p>ผู้ป่วยใหม่</p>
             </div>
 
-            <p className="py-2">วันที่ 1/11/2022</p>
+            <p className="py-2">วันที่ 24/11/2022</p>
             <p className="py-2">เวลา 10:30 - 11:00น </p>
             {isOpenTel && (
               <div className="flex flex-col items-center">
@@ -122,10 +120,12 @@ function BookingPage() {
                 </div>
               </div>
             )}
+            <Link to='/queue/123'>
 
               <button id='submit' className="bg-uColor-green text-white p-2 disabled:opacity-50">
                 ดำเนินการต่อ
               </button>
+            </Link>
           </form>
         </div>
       )}
@@ -134,26 +134,17 @@ function BookingPage() {
         <div className="flex justify-center items-center">เวลา</div>
         <div className=" flex justify-center items-center">สถานะ</div>
       </div>
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
-      <CardComponent toggle={toggleBooking} />
+      <CardComponent toggle={toggleBooking} time="9:00 - 9:30น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="9:30 - 10:00น" dens = {2} />
+      <CardComponent toggle={toggleBooking} time="10:00 - 10:30น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="10:30 - 11:00น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="11:00 - 11:30น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="11:30 - 12:00น" dens = {2} />
+      <CardComponent toggle={toggleBooking} time="13:00 - 13:30น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="13:30 - 14:00น" dens = {1} />
+      <CardComponent toggle={toggleBooking} time="14:00 - 14:30น" dens = {2} />
+      <CardComponent toggle={toggleBooking} time="14:30 - 15:00น" dens = {1} />
+
     </div>
   );
 }
