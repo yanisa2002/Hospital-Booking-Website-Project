@@ -1,34 +1,61 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  BsArrowRight,
+  BsCalendar2Check,
+  BsCheckCircleFill,
+  BsFileEarmarkMedical,
+} from "react-icons/bs";
 
-function CardBook(props) {
-  const { title, descript, newPage } = props;
+function CardBook({ title, description, detail, path, type }) {
+  const hasAppointment = type === "appointment";
+  const CardIcon = hasAppointment
+    ? BsFileEarmarkMedical
+    : BsCalendar2Check;
+
   return (
-    <div className="relative block w-3/5 p-2 bg-gray-900 group shadow-md mt-10 ">
-      <div className="absolute inset-0 bg-white  flex justify-items-center p-5 group-hover:opacity-50">
-        <img
-          className="max-w-full bg-lime-100 p-1 mr-5"
-          src={`/img/${title == "มีใบนัด" ? "icons-A.png" : "icons-notA.png"}`}
-        />
-        <div className="w-full space-y-2">
-          <p className="2xl:text-2xl md:text-base font-bold ">{title}</p>
-          <p className="2xl:text-base md:text-sm ">{descript}</p>
+    <Link
+      to={path}
+      className="group block rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"
+      aria-label={`${title}: ${description}`}
+    >
+      <article className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 group-hover:-translate-y-1 group-hover:border-emerald-300 group-hover:shadow-lg sm:p-7">
+        <div className="flex items-start justify-between gap-4">
+          <div
+            className={`inline-flex rounded-2xl p-4 ${
+              hasAppointment
+                ? "bg-amber-100 text-amber-700"
+                : "bg-emerald-100 text-emerald-700"
+            }`}
+          >
+            <CardIcon className="text-2xl" aria-hidden="true" />
+          </div>
+          {!hasAppointment && (
+            <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+              เริ่มนัดหมายใหม่
+            </span>
+          )}
         </div>
-      </div>
 
-      <div className="relative p-2 transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0">
-        <div className="p-5 px-10 text-center">
-          <Link to={newPage}>
-            <div
-              className="w-full px-10 py-2 text-sm text-white bg-uColor-green hover:bg-green-700 hover:font-semibold cursor-pointer"
-              onClick={() => {}}
-            >
-              จองคิว
-            </div>
-          </Link>
+        <p className="mt-6 text-xl font-bold text-slate-900">{title}</p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+
+        <div className="mt-5 flex items-start gap-2 rounded-xl bg-slate-50 p-3 text-sm text-slate-600">
+          <BsCheckCircleFill
+            className="mt-0.5 flex-none text-emerald-600"
+            aria-hidden="true"
+          />
+          {detail}
         </div>
-      </div>
-    </div>
+
+        <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
+          <span className="font-bold text-uColor-green">เลือกการจองนี้</span>
+          <span className="rounded-full bg-uColor-green p-2.5 text-white transition group-hover:translate-x-1 group-hover:bg-emerald-800">
+            <BsArrowRight aria-hidden="true" />
+          </span>
+        </div>
+      </article>
+    </Link>
   );
 }
 
