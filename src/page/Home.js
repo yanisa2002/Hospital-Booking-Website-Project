@@ -3,13 +3,19 @@ import { Link } from "react-router-dom";
 import {
   BsArrowRight,
   BsBell,
+  BsBuilding,
   BsCalendar2Check,
+  BsCalendarCheck,
   BsCheckCircleFill,
+  BsClipboardCheck,
   BsClockHistory,
+  BsFileEarmarkText,
   BsGeoAlt,
+  BsInfoCircle,
   BsPatchCheckFill,
   BsPersonCheck,
   BsShieldCheck,
+  BsTelephone,
 } from "react-icons/bs";
 
 import CardBook from "../component/home/cardBook";
@@ -52,6 +58,42 @@ const steps = [
   },
 ];
 
+const serviceHighlights = [
+  {
+    icon: BsBuilding,
+    title: "เลือกสถานพยาบาลได้ง่าย",
+    description: "ดูรายชื่อโรงพยาบาลและแผนกก่อนเลือกวันนัด",
+  },
+  {
+    icon: BsCalendarCheck,
+    title: "เห็นวันและเวลาชัดเจน",
+    description: "ตรวจสอบรายละเอียดนัดหมายก่อนยืนยันทุกครั้ง",
+  },
+  {
+    icon: BsClipboardCheck,
+    title: "ติดตามคิวได้ในที่เดียว",
+    description: "เปิดดูสถานะและประวัติการจองได้ตลอดเวลา",
+  },
+];
+
+const preparationItems = [
+  {
+    icon: BsFileEarmarkText,
+    title: "ข้อมูลใบนัด",
+    description: "เตรียมใบนัดเดิม หากโรงพยาบาลออกให้คุณแล้ว",
+  },
+  {
+    icon: BsPersonCheck,
+    title: "ข้อมูลผู้ป่วย",
+    description: "ตรวจสอบชื่อ วันเกิด และข้อมูลติดต่อให้ถูกต้อง",
+  },
+  {
+    icon: BsTelephone,
+    title: "หมายเลขโทรศัพท์",
+    description: "ใช้หมายเลขที่ติดต่อได้เพื่อรับข้อมูลการนัดหมาย",
+  },
+];
+
 function Home() {
   return (
     <main className="overflow-hidden bg-white font-jamjuree text-uColor-green">
@@ -59,7 +101,7 @@ function Home() {
         <div className="absolute -right-24 top-16 h-72 w-72 rounded-full bg-amber-200 opacity-30 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-emerald-200 opacity-30 blur-3xl" />
 
-        <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-16">
           <div className="max-w-2xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm">
               <BsPatchCheckFill className="text-emerald-600" aria-hidden="true" />
@@ -133,35 +175,14 @@ function Home() {
             <div className="absolute -right-4 top-8 hidden rounded-2xl border border-amber-100 bg-white p-4 shadow-xl sm:block">
               <div className="flex items-center gap-3">
                 <div className="rounded-full bg-amber-100 p-2 text-amber-700">
-                  <BsClockHistory aria-hidden="true" />
+                  <BsInfoCircle aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500">เวลารอโดยประมาณ</p>
-                  <p className="font-bold text-slate-900">น้อยกว่า 15 นาที</p>
+                  <p className="text-xs text-slate-500">รายละเอียดครบถ้วน</p>
+                  <p className="font-bold text-slate-900">ตรวจสอบก่อนยืนยันได้</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-slate-100 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-slate-100 px-4 py-7 sm:px-6 lg:grid-cols-4 lg:px-8">
-          <div className="px-4 text-center">
-            <p className="text-2xl font-bold text-slate-900">30+</p>
-            <p className="mt-1 text-sm text-slate-500">โรงพยาบาลในเครือข่าย</p>
-          </div>
-          <div className="px-4 text-center">
-            <p className="text-2xl font-bold text-slate-900">24 ชม.</p>
-            <p className="mt-1 text-sm text-slate-500">จองคิวได้ทุกเวลา</p>
-          </div>
-          <div className="mt-6 border-t border-slate-100 px-4 pt-6 text-center lg:mt-0 lg:border-t-0 lg:pt-0">
-            <p className="text-2xl font-bold text-slate-900">10,000+</p>
-            <p className="mt-1 text-sm text-slate-500">การนัดหมายสำเร็จ</p>
-          </div>
-          <div className="mt-6 border-t border-slate-100 px-4 pt-6 text-center lg:mt-0 lg:border-t-0 lg:pt-0">
-            <p className="text-2xl font-bold text-slate-900">4.9/5</p>
-            <p className="mt-1 text-sm text-slate-500">คะแนนความพึงพอใจ</p>
           </div>
         </div>
       </section>
@@ -186,6 +207,30 @@ function Home() {
               <CardBook key={bookingType.type} {...bookingType} />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-100 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-4 px-4 py-8 sm:px-6 md:grid-cols-3 lg:px-8">
+          {serviceHighlights.map((highlight) => {
+            const HighlightIcon = highlight.icon;
+            return (
+              <article
+                key={highlight.title}
+                className="flex items-start gap-4 rounded-2xl p-4"
+              >
+                <div className="flex-none rounded-xl bg-emerald-100 p-3 text-emerald-700">
+                  <HighlightIcon className="text-xl" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900">{highlight.title}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-500">
+                    {highlight.description}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -226,6 +271,61 @@ function Home() {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-amber-50 py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="rounded-3xl border border-amber-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-amber-100 p-3 text-amber-700">
+                <BsFileEarmarkText className="text-xl" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-amber-700">ก่อนเริ่มจอง</p>
+                <p className="text-2xl font-bold text-slate-900">ข้อมูลที่ควรเตรียม</p>
+              </div>
+            </div>
+
+            <div className="mt-7 space-y-5">
+              {preparationItems.map((item) => {
+                const ItemIcon = item.icon;
+                return (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="mt-1 rounded-lg bg-slate-100 p-2 text-slate-600">
+                      <ItemIcon aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-900">{item.title}</p>
+                      <p className="mt-1 text-sm leading-6 text-slate-500">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between rounded-3xl bg-uColor-green p-6 text-white shadow-sm sm:p-8">
+            <div>
+              <div className="inline-flex rounded-xl bg-white/10 p-3 text-emerald-100">
+                <BsCalendar2Check className="text-2xl" aria-hidden="true" />
+              </div>
+              <p className="mt-6 text-2xl font-bold">หลังยืนยันการจอง</p>
+              <p className="mt-3 leading-7 text-emerald-100">
+                คุณจะเห็นโรงพยาบาล แผนก วัน เวลา และหมายเลขคิวอย่างชัดเจน
+                สามารถกลับมาตรวจสอบรายละเอียดได้จากหน้าประวัติการจอง
+              </p>
+            </div>
+            <Link
+              to="/history"
+              className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-3 font-bold text-uColor-green transition hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-900"
+            >
+              ดูตัวอย่างประวัติการจอง
+              <BsArrowRight aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
